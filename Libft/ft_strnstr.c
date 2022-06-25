@@ -1,47 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tfedoren <tfedoren@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/22 11:02:19 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/06/22 11:02:19 by tfedoren         ###   ########.fr       */
+/*   Created: 2021/12/12 20:03:47 by tfedoren          #+#    #+#             */
+/*   Updated: 2021/12/12 20:03:47 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int deal_key(int key, void *data)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	ft_printf("%d", key);
-	return(0);
-}
-
-int	main(int argc, char **argv)
-{
-	fdf *data;
-
-	data = (fdf*)malloc(sizeof(fdf));
-
-	read_file(argv[1], data);
-	
-	int i;
-	int j;
-
+	size_t	i;
+	size_t	j;
 
 	i = 0;
-	while(i < data->height)
+	if (little[i] == 0)
+		return ((char *)big);
+	while (big[i] && i < len)
 	{
+		if (big[i] == little[0])
+		{		
 		j = 0;
-		while (j < data->width)
-		{
-			ft_printf("%d ", data->z_matrix[i][j]);
-			j++;
+			while (little[j] && j + i < len)
+			{
+				if (big[i + j] != little[j])
+					break ;
+				j++;
+			}
+			if (little[j] == 0)
+				return ((char *)(big + i));
 		}
-		ft_printf("\n");
-		i++;
+	i++;
 	}
-
-
+	return (NULL);
 }

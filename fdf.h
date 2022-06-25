@@ -1,47 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tfedoren <tfedoren@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/22 11:02:19 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/06/22 11:02:19 by tfedoren         ###   ########.fr       */
+/*   Created: 2022/06/22 10:55:53 by tfedoren          #+#    #+#             */
+/*   Updated: 2022/06/22 10:55:53 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#ifndef FDF_H
+# define FDF_H
 
-int deal_key(int key, void *data)
+#include <stdio.h>
+#include <stdlib.h>
+#include <dlfcn.h>
+#include <fcntl.h>
+# include "Libft/libft.h"
+
+// include minilibx
+
+typedef struct
 {
-	ft_printf("%d", key);
-	return(0);
-}
+    int width;
+    int height;
+    int **z_matrix;
 
-int	main(int argc, char **argv)
-{
-	fdf *data;
+   // void *mlx_ptr;
+   // void *win_ptr;
+}   fdf;
 
-	data = (fdf*)malloc(sizeof(fdf));
+void read_file(char *file_name, fdf *data);
 
-	read_file(argv[1], data);
-	
-	int i;
-	int j;
-
-
-	i = 0;
-	while(i < data->height)
-	{
-		j = 0;
-		while (j < data->width)
-		{
-			ft_printf("%d ", data->z_matrix[i][j]);
-			j++;
-		}
-		ft_printf("\n");
-		i++;
-	}
-
-
-}
+#endif

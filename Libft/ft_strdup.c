@@ -1,47 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tfedoren <tfedoren@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/22 11:02:19 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/06/22 11:02:19 by tfedoren         ###   ########.fr       */
+/*   Created: 2021/12/12 21:33:00 by tfedoren          #+#    #+#             */
+/*   Updated: 2021/12/12 21:33:00 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int deal_key(int key, void *data)
+char	*ft_strdup(const char *src)
 {
-	ft_printf("%d", key);
-	return(0);
-}
+	char	*s;
+	size_t	i;
 
-int	main(int argc, char **argv)
-{
-	fdf *data;
-
-	data = (fdf*)malloc(sizeof(fdf));
-
-	read_file(argv[1], data);
-	
-	int i;
-	int j;
-
-
+	if (!src)
+		return (NULL);
+	s = (char *)malloc(sizeof(*src) * (ft_strlen(src) + 1));
+	if (!s)
+		return (NULL);
 	i = 0;
-	while(i < data->height)
+	while (src[i])
 	{
-		j = 0;
-		while (j < data->width)
-		{
-			ft_printf("%d ", data->z_matrix[i][j]);
-			j++;
-		}
-		ft_printf("\n");
+		s[i] = src[i];
 		i++;
 	}
-
-
+	s[i] = 0;
+	return (s);
 }

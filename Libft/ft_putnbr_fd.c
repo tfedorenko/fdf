@@ -1,47 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tfedoren <tfedoren@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/22 11:02:19 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/06/22 11:02:19 by tfedoren         ###   ########.fr       */
+/*   Created: 2021/12/13 18:05:46 by tfedoren          #+#    #+#             */
+/*   Updated: 2021/12/13 18:05:46 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int deal_key(int key, void *data)
+void	ft_putnbr_fd(int n, int fd)
 {
-	ft_printf("%d", key);
-	return(0);
-}
-
-int	main(int argc, char **argv)
-{
-	fdf *data;
-
-	data = (fdf*)malloc(sizeof(fdf));
-
-	read_file(argv[1], data);
-	
-	int i;
-	int j;
-
-
-	i = 0;
-	while(i < data->height)
+	if (n < 0)
 	{
-		j = 0;
-		while (j < data->width)
-		{
-			ft_printf("%d ", data->z_matrix[i][j]);
-			j++;
-		}
-		ft_printf("\n");
-		i++;
+		ft_putchar_fd('-', fd);
+		n = -n;
 	}
-
-
+	if (n == -2147483648)
+	{
+		ft_putchar_fd('2', fd);
+		n = 147483648;
+	}
+	if (n >= 10)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
+	}
+	else
+		ft_putchar_fd(n + '0', fd);
 }

@@ -1,47 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tfedoren <tfedoren@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/22 11:02:19 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/06/22 11:02:19 by tfedoren         ###   ########.fr       */
+/*   Created: 2021/12/03 17:23:29 by tfedoren          #+#    #+#             */
+/*   Updated: 2021/12/03 17:23:29 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int deal_key(int key, void *data)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	ft_printf("%d", key);
-	return(0);
-}
-
-int	main(int argc, char **argv)
-{
-	fdf *data;
-
-	data = (fdf*)malloc(sizeof(fdf));
-
-	read_file(argv[1], data);
-	
-	int i;
-	int j;
-
+	unsigned int	i;
 
 	i = 0;
-	while(i < data->height)
+	if (!dst || !src)
+		return (0);
+	if (size > 0)
 	{
-		j = 0;
-		while (j < data->width)
+		while (src[i] && i < (size - 1))
 		{
-			ft_printf("%d ", data->z_matrix[i][j]);
-			j++;
+			dst[i] = src[i];
+			i++;
 		}
-		ft_printf("\n");
-		i++;
+		dst[i] = '\0';
 	}
-
-
+	while (src[i])
+			i++;
+	return (i);
 }

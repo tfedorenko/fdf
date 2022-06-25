@@ -1,47 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tfedoren <tfedoren@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/22 11:02:19 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/06/22 11:02:19 by tfedoren         ###   ########.fr       */
+/*   Created: 2021/12/12 15:59:24 by tfedoren          #+#    #+#             */
+/*   Updated: 2021/12/12 15:59:24 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int deal_key(int key, void *data)
+void	*ft_memchr(const void *arr, int c, size_t n)
 {
-	ft_printf("%d", key);
-	return(0);
-}
-
-int	main(int argc, char **argv)
-{
-	fdf *data;
-
-	data = (fdf*)malloc(sizeof(fdf));
-
-	read_file(argv[1], data);
-	
-	int i;
-	int j;
-
+	unsigned char	*src;
+	unsigned int	i;
 
 	i = 0;
-	while(i < data->height)
+	src = (unsigned char *)arr;
+	while (i < n)
 	{
-		j = 0;
-		while (j < data->width)
-		{
-			ft_printf("%d ", data->z_matrix[i][j]);
-			j++;
-		}
-		ft_printf("\n");
+		if (src[i] == (unsigned char)c)
+			return (&src[i]);
 		i++;
 	}
-
-
+	return (0);
 }

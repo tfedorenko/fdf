@@ -1,47 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tfedoren <tfedoren@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/22 11:02:19 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/06/22 11:02:19 by tfedoren         ###   ########.fr       */
+/*   Created: 2021/12/12 16:05:04 by tfedoren          #+#    #+#             */
+/*   Updated: 2021/12/12 16:05:04 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int deal_key(int key, void *data)
+int	ft_memcmp(const void *arr1, const void *arr2, size_t n)
 {
-	ft_printf("%d", key);
-	return(0);
-}
+	size_t			i;
+	unsigned char	*str1;
+	unsigned char	*str2;
 
-int	main(int argc, char **argv)
-{
-	fdf *data;
-
-	data = (fdf*)malloc(sizeof(fdf));
-
-	read_file(argv[1], data);
-	
-	int i;
-	int j;
-
-
+	str1 = (unsigned char *)arr1;
+	str2 = (unsigned char *)arr2;
 	i = 0;
-	while(i < data->height)
-	{
-		j = 0;
-		while (j < data->width)
-		{
-			ft_printf("%d ", data->z_matrix[i][j]);
-			j++;
-		}
-		ft_printf("\n");
+	if (n == 0)
+		return (0);
+	while (str1[i] == str2[i] && i < n - 1)
 		i++;
-	}
-
-
+	return ((int)(str1[i] - str2[i]));
 }

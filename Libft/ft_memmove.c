@@ -1,47 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tfedoren <tfedoren@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/22 11:02:19 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/06/22 11:02:19 by tfedoren         ###   ########.fr       */
+/*   Created: 2021/12/09 15:04:39 by tfedoren          #+#    #+#             */
+/*   Updated: 2021/12/09 15:04:39 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int deal_key(int key, void *data)
+void	*ft_memmove(void *dst, const void *src, size_t n)
 {
-	ft_printf("%d", key);
-	return(0);
-}
+	size_t	i;
+	char	*d;
+	char	*s;
 
-int	main(int argc, char **argv)
-{
-	fdf *data;
-
-	data = (fdf*)malloc(sizeof(fdf));
-
-	read_file(argv[1], data);
-	
-	int i;
-	int j;
-
-
-	i = 0;
-	while(i < data->height)
+	d = (char *)dst;
+	s = (char *)src;
+	if (d == s)
+		return (d);
+	if (s < d)
 	{
-		j = 0;
-		while (j < data->width)
-		{
-			ft_printf("%d ", data->z_matrix[i][j]);
-			j++;
-		}
-		ft_printf("\n");
-		i++;
+		i = n;
+		while (i--)
+			((char *)d)[i] = ((char *)s)[i];
 	}
-
-
+	else
+	{
+		i = 0;
+		while (i < n)
+		{
+			((char *)d)[i] = ((char *)s)[i];
+			i++;
+		}
+	}
+	return (d);
 }

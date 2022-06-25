@@ -1,47 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tfedoren <tfedoren@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/22 11:02:19 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/06/22 11:02:19 by tfedoren         ###   ########.fr       */
+/*   Created: 2021/12/24 23:54:52 by tfedoren          #+#    #+#             */
+/*   Updated: 2021/12/24 23:54:52 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int deal_key(int key, void *data)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	ft_printf("%d", key);
-	return(0);
-}
+	t_list	*newlst;
+	t_list	*new;
 
-int	main(int argc, char **argv)
-{
-	fdf *data;
-
-	data = (fdf*)malloc(sizeof(fdf));
-
-	read_file(argv[1], data);
-	
-	int i;
-	int j;
-
-
-	i = 0;
-	while(i < data->height)
+	newlst = (void *)0;
+	while (lst)
 	{
-		j = 0;
-		while (j < data->width)
+		new = ft_lstnew(f(lst->content));
+		if (!new)
 		{
-			ft_printf("%d ", data->z_matrix[i][j]);
-			j++;
+			ft_lstclear(&newlst, del);
+			return (newlst);
 		}
-		ft_printf("\n");
-		i++;
+		ft_lstadd_back(&newlst, new);
+		lst = lst -> next;
 	}
-
-
+	return (newlst);
 }

@@ -1,47 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tfedoren <tfedoren@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/22 11:02:19 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/06/22 11:02:19 by tfedoren         ###   ########.fr       */
+/*   Created: 2021/12/17 18:55:40 by tfedoren          #+#    #+#             */
+/*   Updated: 2021/12/17 18:55:40 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int deal_key(int key, void *data)
+/*Applies the function f to each character of the
+string passed as argument, and passing its index
+as first argument. Each character is passed by
+address to f to be modified if necessary*/
+
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	ft_printf("%d", key);
-	return(0);
-}
+	unsigned int	i;
 
-int	main(int argc, char **argv)
-{
-	fdf *data;
-
-	data = (fdf*)malloc(sizeof(fdf));
-
-	read_file(argv[1], data);
-	
-	int i;
-	int j;
-
-
+	if (!s || !f)
+		return ;
 	i = 0;
-	while(i < data->height)
+	while (s[i])
 	{
-		j = 0;
-		while (j < data->width)
-		{
-			ft_printf("%d ", data->z_matrix[i][j]);
-			j++;
-		}
-		ft_printf("\n");
+		f(i, &s[i]);
 		i++;
 	}
-
-
 }
