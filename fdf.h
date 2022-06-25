@@ -17,7 +17,8 @@
 #include <stdlib.h>
 #include <dlfcn.h>
 #include <fcntl.h>
-# include "Libft/libft.h"
+#include "Libft/libft.h"
+#include "minilibx_macos/mlx.h"
 
 // include minilibx
 
@@ -26,9 +27,11 @@ typedef struct
     int width;
     int height;
     int **z_matrix;
+    int zoom;
+    int collor;
 
-   // void *mlx_ptr;
-   // void *win_ptr;
+    void *mlx_ptr;
+    void *win_ptr;
 }   fdf;
 
 void read_file(char *file_name, fdf *data);

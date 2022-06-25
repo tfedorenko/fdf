@@ -21,6 +21,11 @@ void bresenham(float x, float y, float x1, float y1, fdf *data)
     float y_step;
     int max;
 
+    x *= data->zoom;
+	y *= data->zoom;
+	x1 *= data->zoom;
+	y1 *= data->zoom;
+
     x_step = x1 - x;
     y_step = y1 - y;
     max = MAX1(MOD(x_step), MOD(y_step));
@@ -38,5 +43,17 @@ void draw(fdf *data)
 {
     int x;
     int y;
-    
+
+    y = 0;
+    while (y < data->height)
+    {
+        x=0;
+        while(x < data->width)
+        {
+            bresenham(x, y, x+1, y);
+            bresenham(x, y, x, y+1);
+            x++;
+        }
+        y++;
+    }
 }
