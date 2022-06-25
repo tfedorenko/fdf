@@ -26,6 +26,9 @@ void bresenham(float x, float y, float x1, float y1, fdf *data)
 	x1 *= data->zoom;
 	y1 *= data->zoom;
 
+	
+
+
     x_step = x1 - x;
     y_step = y1 - y;
     max = MAX1(MOD(x_step), MOD(y_step));

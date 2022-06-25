@@ -19,6 +19,8 @@
 #include <fcntl.h>
 #include "Libft/libft.h"
 #include "minilibx_macos/mlx.h"
+#include <math.h>
+
 
 // include minilibx
 
