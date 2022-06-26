@@ -6,7 +6,7 @@
 /*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 11:02:19 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/06/26 19:37:57 by tfedoren         ###   ########.fr       */
+/*   Updated: 2022/06/26 20:38:50 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,11 @@ int	deal_key(int key, fdf *data)
 	if (key == 123)
 		data->shift_x -= 10;
 	if (key == 124)
+	{
 		data->shift_x += 10;
+		//mlx_do_key_autorepeaton(data->mlx_ptr);	
+	}
+
 
 	mlx_clear_window(data->mlx_ptr, data->win_ptr);
 	draw(data);
@@ -31,6 +35,11 @@ int	deal_key(int key, fdf *data)
 		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 	return (0);
 }
+
+// int mouth_key(int key, fdf *data)
+// {
+// 	ft_printf("%d\n", key);
+// }
 
 int	main(int argc, char **argv)
 {

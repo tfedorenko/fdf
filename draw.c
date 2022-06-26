@@ -6,7 +6,7 @@
 /*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 12:15:00 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/06/26 17:15:13 by tfedoren         ###   ########.fr       */
+/*   Updated: 2022/06/26 20:10:06 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 void isometric(float *x, float *y, int z)
 {
-	*x =(*x - *y) * cos(0.8);
-	*y =(*x + *y) * sin(0.8) - z;
+	*x = (*x - *y) * cos(0.8);
+	*y = (*x + *y) * sin(0.8) - z;
 }
 
 void	bresenham(float x, float y, float x1, float y1, fdf *data)
