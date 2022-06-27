@@ -6,7 +6,7 @@
 /*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 11:04:47 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/06/26 16:14:43 by tfedoren         ###   ########.fr       */
+/*   Updated: 2022/06/27 21:09:22 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 int	get_height(char *file_name)
 {
-	// char	*line;
 	int		fd;
 	int		height;
 
 	fd = open(file_name, O_RDONLY, 0);
+	if (fd == -1)
+		return (-1);
 	height = 0;
 	while (get_next_line(fd))
 	{
 		height++;
-		// free(line);
 	}
 	close(fd);
 	return (height);
@@ -55,13 +55,13 @@ int	get_width(char *file_name)
 	int		width;
 
 	fd = open(file_name, O_RDONLY, 0);
-
+	if (fd == -1)
+		return (-1);
 	line = get_next_line(fd);
 	width = ft_wdcounter(line, ' ');
 	free(line);
 	close(fd);
 	return (width);
-
 }
 
 void	fill_matrix(int *z_line, char *line)
@@ -70,7 +70,6 @@ void	fill_matrix(int *z_line, char *line)
 	int		i;
 
 	nums = ft_split(line, ' ');
-	
 	i = 0;
 	while (nums[i])
 	{
@@ -81,7 +80,7 @@ void	fill_matrix(int *z_line, char *line)
 	free(nums);
 }
 
-void	read_file(char *file_name, fdf *data)
+int	read_file(char *file_name, fdf *data)
 {
 	int		fd;
 	char	*line;
@@ -89,6 +88,8 @@ void	read_file(char *file_name, fdf *data)
 
 	data->height = get_height(file_name);
 	data->width = get_width(file_name);
+	if (data->height  == -1 || data->width == -1)
+		return (-1);
 	data->z_matrix = (int **)malloc(sizeof(int *) * (data->height + 1));
 	i = 0;
 	while (i <= data->height)
@@ -100,8 +101,7 @@ void	read_file(char *file_name, fdf *data)
 		fill_matrix(data->z_matrix[i], line);
 		i++;
 	}
-
 	close(fd);
 	data->z_matrix[i] = NULL;
-
+	return (0);
 }
