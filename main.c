@@ -6,7 +6,7 @@
 /*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 11:02:19 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/06/27 21:06:53 by tfedoren         ###   ########.fr       */
+/*   Updated: 2022/06/30 18:16:06 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	deal_key(int key, fdf *data)
 	draw(data);
 	if (key == 53)
 		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+		exit(1);
 	return (0);
 }
 
@@ -57,18 +58,21 @@ int	main(int argc, char **argv)
 	}
 
 	data = (fdf *)malloc(sizeof(fdf));
+
 	check = read_file(argv[1], data);
+
 	if (check == -1)
 	{
 		ft_printf("Error\n");
 		return (1);
 	}
-
+						
 	data->mlx_ptr = mlx_init();
 	data->win_ptr = mlx_new_window(data->mlx_ptr, 1000, 1000, "FDF");
 	zoom (data);
-	// ft_printf("data->weight=%d\n", data->width);
-	// ft_printf("data->height=%d\n", data->height);
+	ft_printf("data->weight=%d\n", data->width);
+	ft_printf("data->height=%d\n", data->height);
+
 	draw(data);
 	mlx_key_hook(data->win_ptr, deal_key, data);
 	mlx_loop(data->mlx_ptr);

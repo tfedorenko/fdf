@@ -6,7 +6,7 @@
 /*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 20:17:52 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/05/23 11:33:12 by tfedoren         ###   ########.fr       */
+/*   Updated: 2022/06/30 18:32:49 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	ft_atoi(char *str)
 	i = 0;
 	sign = 1;
 	res = 0;
+			
 	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\r' || \
 			str[i] == '\t' || str[i] == '\v' || str[i] == '\f')
 	i++;
@@ -35,5 +36,6 @@ int	ft_atoi(char *str)
 		res = res * 10 + str[i] - '0';
 		i++;
 	}
+
 	return (sign * res);
 }

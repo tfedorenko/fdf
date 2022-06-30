@@ -6,7 +6,7 @@
 /*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 12:15:00 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/06/27 20:03:40 by tfedoren         ###   ########.fr       */
+/*   Updated: 2022/06/30 14:39:50 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 void	isometric(float *x, float *y, int z)
 {
-	*x = (*x - *y) * cos(0.8);
-	*y = (*x + *y) * sin(0.8) - z;
+	*x = (int)(*x - *y) * cos(0.8);
+	*y = (int)(*x + *y) * sin(0.8) - z;
 }
 
 void	bresenham(float x, float y, float x1, float y1, fdf *data)
@@ -47,8 +47,8 @@ void	bresenham(float x, float y, float x1, float y1, fdf *data)
 	isometric(&x, &y, z);
 	isometric(&x1, &y1, z1);
 
-	x_step = x1 - x;
-	y_step = y1 - y;
+	x_step = (int)x1 - x;
+	y_step = (int)y1 - y;
 
 	max = MAX1(MOD(x_step), MOD(y_step));
 	x_step /= max;
