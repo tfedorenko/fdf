@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: stena-he <stena-he@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 11:02:19 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/06/30 18:16:06 by tfedoren         ###   ########.fr       */
+/*   Updated: 2022/07/02 20:25:15 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,26 @@ int	deal_key(int key, fdf *data)
 		data->shift_x -= 10;
 	if (key == 124)
 		data->shift_x += 10;
+	if (key == 18)
+		data->zoom -=5;
+	if (key == 19)
+		data->zoom +=5;
+	if (key == 15)
+		data->angle +=0.1;
+	if (key == 17)
+		data->angle -=0.1;
+	if (key == 1 )
+		data->scale_z += 1.1;
+	if (key == 2 )
+		data->scale_z -= 1.1;
 	mlx_clear_window(data->mlx_ptr, data->win_ptr);
 	draw(data);
 	if (key == 53)
+	{
 		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 		exit(1);
+	}
+
 	return (0);
 }
 

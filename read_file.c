@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: stena-he <stena-he@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 11:04:47 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/06/30 18:41:48 by tfedoren         ###   ########.fr       */
+/*   Updated: 2022/06/30 19:17:03 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,10 +108,17 @@ void	fill_matrix(int *z_line, char *line)
 
 		// printf("%s ", nums[i]);
 		z_line[i] = ft_atoi(nums[i]);
-		printf("%d ", z_line[i]);
+		// printf("%d ", z_line[i]);
 		free(nums[i]);
 		i++;
 	}
+	int j = 0;
+	while(j < i)
+	{
+			printf("%d", z_line[j]);
+			j++;
+	}
+	// printf("%s \n", z_line);
 	printf("\n");
 	free(nums);
 }
@@ -127,6 +134,8 @@ int	read_file(char *file_name, fdf *data)
 	
 	if (data->height  == -1 || data->width == -1)
 		return (-1);
+	
+	// data->z_matrix = (int **)malloc(sizeof(int *) * (data->height + 1));
 	
 	data->z_matrix = (int **)malloc(sizeof(int *) * (data->height + 1));
 	i = 0;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: stena-he <stena-he@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 12:15:00 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/06/30 14:39:50 by tfedoren         ###   ########.fr       */
+/*   Updated: 2022/07/02 20:20:43 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,11 @@
 #define MAX1(a, b) (a > b ? a : b)
 #define MOD(a) ((a <  0) ? -a : a)
 
-void	isometric(float *x, float *y, int z)
+void	isometric(float *x, float *y, int z, fdf *data)
 {
-	*x = (int)(*x - *y) * cos(0.8);
-	*y = (int)(*x + *y) * sin(0.8) - z;
+	// data->angle = 0.8;
+	*x = (int)(*x - *y) * cos(data->angle);
+	*y = (int)(*x + *y) * sin(data->angle) - z;
 }
 
 void	bresenham(float x, float y, float x1, float y1, fdf *data)
@@ -41,11 +42,18 @@ void	bresenham(float x, float y, float x1, float y1, fdf *data)
 	y += data->shift_y;
 	x1 += data->shift_x;
 	y1 += data->shift_y;
+	// if  ( z != 0)
+	// {
+		 z *= data->scale_z;
+		z1 *=data->scale_z;	
+	// }
+
 	
 	data->color = (z || z1) ? 0xe80c0c : 0xffffff;
 	
-	isometric(&x, &y, z);
-	isometric(&x1, &y1, z1);
+	//data->angle = 0.8;
+	isometric(&x, &y, z, data);
+	isometric(&x1, &y1, z1, data);
 
 	x_step = (int)x1 - x;
 	y_step = (int)y1 - y;
@@ -56,7 +64,7 @@ void	bresenham(float x, float y, float x1, float y1, fdf *data)
 
 	while ((int)(x - x1) || (int)(y - y1))
 	{
-		mlx_pixel_put(data->img, data->win_ptr, x + 450, y + 350, data->color);
+		mlx_pixel_put(data->mlx_ptr, data->win_ptr, x + 450, y + 350, data->color);
 		x += x_step;
 		y += y_step;
 	}
