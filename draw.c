@@ -6,21 +6,44 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 12:15:00 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/02 20:20:43 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/07/02 22:14:43 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-#define MAX1(a, b) (a > b ? a : b)
-#define MOD(a) ((a <  0) ? -a : a)
+// #define MAX1(a, b) (a > b ? a : b)
+// #define MOD(a) ((a <  0) ? -a : a)
+
+int	find_max(int a, int b)
+{
+	if (a > b)
+		return (a);
+	else
+		return (b);
+}
+
+int	find_mod(int a)
+{
+	if (a < 0)
+		return (a * (-1));
+	else
+		return (a);
+}
 
 void	isometric(float *x, float *y, int z, fdf *data)
 {
-	// data->angle = 0.8;
-	*x = (int)(*x - *y) * cos(data->angle);
-	*y = (int)(*x + *y) * sin(data->angle) - z;
+	float	*temp;
+
+	temp = x;
+	*x = (int)(*x - *y)*cos(data->angle);
+	*y = (int)(*temp + *y)*sin(data->angle) - z;
 }
+
+// void b_color(int z, int z1)
+// {
+// 	if ()
+// }
 
 void	bresenham(float x, float y, float x1, float y1, fdf *data)
 {
@@ -29,39 +52,20 @@ void	bresenham(float x, float y, float x1, float y1, fdf *data)
 	int		max;
 	int		z;
 	int		z1;
-	
+
 	z = data->z_matrix[(int)y][(int)x];
 	z1 = data->z_matrix[(int)y1][(int)x1];
-
-	x *= data->zoom;
-	y *= data->zoom;
-	x1 *= data->zoom;
-	y1 *= data->zoom;
-
-	x += data->shift_x;
-	y += data->shift_y;
-	x1 += data->shift_x;
-	y1 += data->shift_y;
-	// if  ( z != 0)
-	// {
-		 z *= data->scale_z;
-		z1 *=data->scale_z;	
-	// }
-
-	
+	b_zoom(&x, &y, &x1, &y1, data);
+	b_translate(&x, &y, &x1, &y1, data);
+	b_scale_z(&z, &z1, data);
 	data->color = (z || z1) ? 0xe80c0c : 0xffffff;
-	
-	//data->angle = 0.8;
 	isometric(&x, &y, z, data);
 	isometric(&x1, &y1, z1, data);
-
 	x_step = (int)x1 - x;
 	y_step = (int)y1 - y;
-
-	max = MAX1(MOD(x_step), MOD(y_step));
+	max = find_max(find_mod(x_step), find_mod(y_step));
 	x_step /= max;
 	y_step /= max;
-
 	while ((int)(x - x1) || (int)(y - y1))
 	{
 		mlx_pixel_put(data->mlx_ptr, data->win_ptr, x + 450, y + 350, data->color);
@@ -89,4 +93,6 @@ void	draw(fdf *data)
 		}
 		y++;
 	}
+	data->img = mlx_new_image(data->mlx_ptr, data->width, data->height);
+	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img, x, y);
 }

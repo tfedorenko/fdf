@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 10:55:53 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/02 20:03:55 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/07/02 22:09:41 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,7 @@ int		deal_key(int key, fdf *data);
 void	bresenham(float x, float y, float x1, float y1, fdf *data);
 void	default_location(float x, float y);
 
+void	b_zoom(float *x, float *y, float *x1, float *y1, fdf *data);
+void	b_translate(float *x, float *y, float *x1, float *y1, fdf *data);
+void	b_scale_z(int *z, int *z1, fdf *data);
 #endif
