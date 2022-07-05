@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 12:15:00 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/02 22:14:43 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/07/05 17:54:35 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	isometric(float *x, float *y, int z, fdf *data)
 	float	*temp;
 
 	temp = x;
+	data->angle = 0.8;
 	*x = (int)(*x - *y)*cos(data->angle);
 	*y = (int)(*temp + *y)*sin(data->angle) - z;
 }

@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 11:02:19 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/02 22:01:01 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/07/05 17:58:53 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ int	deal_key(int key, fdf *data)
 	if (key == 17)
 		data->angle -= 0.1;
 	if (key == 1)
-		data->scale_z += 1.1;
-	if (key == 2)
 		data->scale_z -= 1.1;
+	if (key == 2)
+		data->scale_z += 1.1;
 	mlx_clear_window(data->mlx_ptr, data->win_ptr);
 	draw(data);
 	if (key == 53)

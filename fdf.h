@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 10:55:53 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/02 22:09:41 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/07/02 22:18:51 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef struct
 	void	*img;
 	void	*mlx_ptr;
 	void	*win_ptr;
-	double		angle;
+	double	angle;
 	int		scale_z;
 }	fdf;
 
