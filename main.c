@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 11:02:19 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/05 17:58:53 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/07/06 20:09:04 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,27 @@ int	deal_key(int key, fdf *data)
 	if (key == 19)
 		data->zoom += 5;
 	if (key == 15)
+	{
 		data->angle += 0.1;
+		data->angle_thingy += 10;
+		printf("Data %d\n", data->angle_thingy);
+		if(data->angle_thingy == 160 || data->angle_thingy > 160)
+		{
+			data->angle = 0;
+			data->angle_thingy = 0;
+		}
+	}
 	if (key == 17)
+	{
 		data->angle -= 0.1;
+		data->angle_thingy -= 10;
+		perror("Zium");
+		if(data->angle_thingy == 10 || data->angle_thingy < 10)
+		{
+			data->angle = 1.8;
+			data->angle_thingy = 180;
+		}
+	}
 	if (key == 1)
 		data->scale_z -= 1.1;
 	if (key == 2)
@@ -71,6 +89,8 @@ int	main(int argc, char **argv)
 	}
 	data = (fdf *)malloc(sizeof(fdf));
 	check = read_file(argv[1], data);
+	data->angle = 0.1;
+	data->angle_thingy = 10;
 	if (check == -1)
 	{
 		ft_printf("Error\n");
@@ -79,7 +99,7 @@ int	main(int argc, char **argv)
 	data->mlx_ptr = mlx_init();
 	data->win_ptr = mlx_new_window(data->mlx_ptr, 1000, 1000, "FDF");
 	zoom_ini (data);
-	ft_printf("data->weight=%d\n", data->width);
+	ft_printf("data->width=%d\n", data->width);
 	ft_printf("data->height=%d\n", data->height);
 	draw(data);
 	mlx_key_hook(data->win_ptr, deal_key, data);

@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 11:04:47 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/06/30 19:17:03 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/07/07 13:00:30 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,50 +29,50 @@ int	get_height(char *file_name)
 	return (height);
 }
 
-int	ft_wdcounter(char const *str, char c)
-{
-	int	i;
-	int	words;
-
-	words = 0;
-	i = 0;
-	while (str[i])
-	{
-		while (str[i] == c && str[i] != '\0')
-			i++;
-		if (str[i])
-			words++;
-		while (str[i] != c && str[i] != '\0')
-			i++;
-	}
-//  i++;
-	return (words);
-
-
-}
-
-// int wd_counter(char *line)
+// int	ft_wdcounter(char const *str, char c)
 // {
-// 	int count;
-// 	int i;
-// 	int flag;
+// 	int	i;
+// 	int	words;
 
-// 	count =0;
+// 	words = 0;
 // 	i = 0;
-// 	flag = 0;
-// 	while(line[i])
+// 	while (str[i])
 // 	{
-// 		if ((line[i] >= '0' && line[i] <= '9') && flag == '0')
-// 		{
-// 			count++;
-// 			flag = 1;
-// 		}
-// 		else
-// 			flag = 0;
-// 		i++;
+// 		while (str[i] == c && str[i] != '\0')
+// 			i++;
+// 		if (str[i])
+// 			words++;
+// 		while (str[i] != c && str[i] != '\0')
+// 			i++;
 // 	}
-// 	return(count);
+// //  i++;
+// 	return (words);
+
+
 // }
+
+int wd_counter(char *line)
+{
+	int count;
+	int i;
+	int flag;
+
+	count =0;
+	i = 0;
+	flag = 0;
+	while(line[i])
+	{
+		if ((line[i] >= '0' && line[i] <= '9') && flag == 0)
+		{
+			count++;
+			flag = 1;
+		}
+		else
+			flag = 0;
+		i++;
+	}
+	return(count);
+}
 
 int	get_width(char *file_name)
 {
@@ -84,8 +84,10 @@ int	get_width(char *file_name)
 	if (fd == -1)
 		return (-1);
 	line = get_next_line(fd);
-	width = ft_wdcounter(line, ' ');
-	// width = ft_wdcounter(line);
+	// trim whitespace
+	ft_strtrim(line, " ");
+	// width = ft_wdcounter(line, ' ');
+	width = wd_counter(line);
 	while (line)
 	{
 		line = get_next_line(fd);
@@ -103,7 +105,7 @@ void	fill_matrix(int *z_line, char *line)
 
 	nums = ft_split(line, ' ');
 	i = 0;
-	while (nums[i+1])
+	while (nums[i])
 	{
 
 		// printf("%s ", nums[i]);
@@ -112,12 +114,12 @@ void	fill_matrix(int *z_line, char *line)
 		free(nums[i]);
 		i++;
 	}
-	int j = 0;
-	while(j < i)
-	{
-			printf("%d", z_line[j]);
-			j++;
-	}
+	// int j = 0;
+	// while(j < i)
+	// {
+	// 		printf("%d", z_line[j]);
+	// 		j++;
+	// }
 	// printf("%s \n", z_line);
 	printf("\n");
 	free(nums);
@@ -150,10 +152,13 @@ int	read_file(char *file_name, fdf *data)
 	{
 					// ft_printf("here %s", line);
 		fill_matrix(data->z_matrix[i], line);
-		
+		// printf("Czary mary dzikie weze %s\n", line);
+		// if(i == 8)
+		// {
+		// 	data->height--;
+		// 	break;
+		// }
 		i++;
-	
-
 	}
 
 	// int y = 0;

@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 10:55:53 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/02 22:18:51 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/07/06 20:23:08 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct
 	void	*win_ptr;
 	double	angle;
 	int		scale_z;
+	int		angle_thingy;
 }	fdf;
 
 int		read_file(char *file_name, fdf *data);

@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 12:15:00 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/05 17:54:35 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/07/06 20:29:09 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int	find_mod(int a)
 	else
 		return (a);
 }
+
+// rotate
 
 void	isometric(float *x, float *y, int z, fdf *data)
 {
@@ -60,8 +62,10 @@ void	bresenham(float x, float y, float x1, float y1, fdf *data)
 	b_translate(&x, &y, &x1, &y1, data);
 	b_scale_z(&z, &z1, data);
 	data->color = (z || z1) ? 0xe80c0c : 0xffffff;
+	
 	isometric(&x, &y, z, data);
 	isometric(&x1, &y1, z1, data);
+	
 	x_step = (int)x1 - x;
 	y_step = (int)y1 - y;
 	max = find_max(find_mod(x_step), find_mod(y_step));
