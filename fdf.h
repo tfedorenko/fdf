@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 10:55:53 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/06 20:23:08 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/07/08 11:20:21 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@
 
 typedef struct 
 {
+	float	x;
+	float	y;
+	float	z;
 	int		width;
 	int		height;
 	int		**z_matrix;
@@ -35,9 +38,12 @@ typedef struct
 	void	*img;
 	void	*mlx_ptr;
 	void	*win_ptr;
-	double	angle;
 	int		scale_z;
 	int		angle_thingy;
+	double	alpha;
+	double	gamma;
+	double	beta;
+
 }	fdf;
 
 int		read_file(char *file_name, fdf *data);

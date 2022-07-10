@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 11:04:47 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/07 13:00:30 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/07/07 20:05:09 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,16 @@ int	get_height(char *file_name)
 
 // }
 
-int wd_counter(char *line)
+int	wd_counter(char *line)
 {
-	int count;
-	int i;
-	int flag;
+	int	count;
+	int	i;
+	int	flag;
 
-	count =0;
+	count = 0;
 	i = 0;
 	flag = 0;
-	while(line[i])
+	while (line[i])
 	{
 		if ((line[i] >= '0' && line[i] <= '9') && flag == 0)
 		{
@@ -71,7 +71,7 @@ int wd_counter(char *line)
 			flag = 0;
 		i++;
 	}
-	return(count);
+	return (count);
 }
 
 int	get_width(char *file_name)
@@ -84,9 +84,7 @@ int	get_width(char *file_name)
 	if (fd == -1)
 		return (-1);
 	line = get_next_line(fd);
-	// trim whitespace
 	ft_strtrim(line, " ");
-	// width = ft_wdcounter(line, ' ');
 	width = wd_counter(line);
 	while (line)
 	{
@@ -107,25 +105,15 @@ void	fill_matrix(int *z_line, char *line)
 	i = 0;
 	while (nums[i])
 	{
-
-		// printf("%s ", nums[i]);
 		z_line[i] = ft_atoi(nums[i]);
-		// printf("%d ", z_line[i]);
 		free(nums[i]);
 		i++;
 	}
-	// int j = 0;
-	// while(j < i)
-	// {
-	// 		printf("%d", z_line[j]);
-	// 		j++;
-	// }
-	// printf("%s \n", z_line);
 	printf("\n");
 	free(nums);
 }
 
-int	read_file(char *file_name, fdf *data)
+int read_file(char *file_name, fdf *data)
 {
 	int		fd;
 	char	*line;
