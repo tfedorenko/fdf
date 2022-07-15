@@ -6,14 +6,14 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 12:15:00 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/08 11:05:04 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/07/15 15:28:15 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-// #define MAX1(a, b) (a > b ? a : b)
-// #define MOD(a) ((a <  0) ? -a : a)
+#define MAX1(a, b) (a > b ? a : b)
+#define MOD(a) ((a <  0) ? -a : a)
 
 int	find_max(int a, int b)
 {
@@ -31,7 +31,6 @@ int	find_mod(int a)
 		return (a);
 }
 
-// rotate
 
 void	isometric(float *x, float *y, int z)
 {
@@ -42,7 +41,6 @@ void	isometric(float *x, float *y, int z)
 	*y = (int)(*temp + *y)*sin(0.525599) - z;
 }
 
-// bresenham(x, y, x + 1, y, data);
 void	bresenham(float x, float y, float x1, float y1, fdf *data)
 {
 	float	x_step;
@@ -55,23 +53,22 @@ void	bresenham(float x, float y, float x1, float y1, fdf *data)
 	z1 = data->z_matrix[(int)y1][(int)x1];
 
 	b_zoom(&x, &y, &x1, &y1, data);
-	b_translate(&x, &y, &x1, &y1, data);
-	b_scale_z(&z, &z1, data);
+	// b_translate(&x, &y, &x1, &y1, data);
+	// b_scale_z(&z, &z1, data);
 	data->color = (z || z1) ? 0xe80c0c : 0xffffff;
 	isometric(&x, &y, z);
 	isometric(&x1, &y1, z1);
 	x_step = (int)x1 - x;
 	y_step = (int)y1 - y;
-	max = find_max(find_mod(x_step), find_mod(y_step));
+	// max = find_max(find_mod(x_step), find_mod(y_step));
+	max = MAX1(MOD(x_step), MOD(y_step));
 
 	x_step /= max;
 	y_step /= max;
 
 	while ((int)(x - x1) || (int)(y - y1))
 	{
-		write(2, "b0\n", 3);
 		mlx_pixel_put(data->mlx_ptr, data->win_ptr, x + 450, y + 350, data->color);
-		write(2, "b8\n", 3);
 		x += x_step;
 		y += y_step;
 	}
@@ -88,7 +85,6 @@ void	draw(fdf *data)
 		x = 0;
 		while (x < data->width)
 		{
-			write(2, "d2\n", 3);
 			if (x < data->width - 1)
 				bresenham(x, y, x + 1, y, data);
 			if (y < data->height - 1)

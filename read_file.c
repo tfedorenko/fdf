@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 11:04:47 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/07 20:05:09 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/07/15 15:15:50 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,27 +29,7 @@ int	get_height(char *file_name)
 	return (height);
 }
 
-// int	ft_wdcounter(char const *str, char c)
-// {
-// 	int	i;
-// 	int	words;
 
-// 	words = 0;
-// 	i = 0;
-// 	while (str[i])
-// 	{
-// 		while (str[i] == c && str[i] != '\0')
-// 			i++;
-// 		if (str[i])
-// 			words++;
-// 		while (str[i] != c && str[i] != '\0')
-// 			i++;
-// 	}
-// //  i++;
-// 	return (words);
-
-
-// }
 
 int	wd_counter(char *line)
 {
@@ -124,45 +104,18 @@ int read_file(char *file_name, fdf *data)
 	
 	if (data->height  == -1 || data->width == -1)
 		return (-1);
-	
-	// data->z_matrix = (int **)malloc(sizeof(int *) * (data->height + 1));
-	
+
 	data->z_matrix = (int **)malloc(sizeof(int *) * (data->height + 1));
 	i = 0;
-
 	while (i < data->height)
 		data->z_matrix[i++] = (int *)malloc(sizeof(int) * (data->width + data->width));
-
 	fd = open(file_name, O_RDONLY, 0);
-
 	i = 0;
 	while ((line = get_next_line(fd)))
 	{
-					// ft_printf("here %s", line);
 		fill_matrix(data->z_matrix[i], line);
-		// printf("Czary mary dzikie weze %s\n", line);
-		// if(i == 8)
-		// {
-		// 	data->height--;
-		// 	break;
-		// }
 		i++;
 	}
-
-	// int y = 0;
-	// int x = 0;
-
-	// while (y < data->height)
-	// {
-	// 	x = 0;
-	// 	while(x < data->width)
-	// 	{
-	// 		printf("%d", data->z_matrix[y][x]);
-	// 		x++;
-	// 	}
-	// 	printf("\n");
-	// 	y++;
-	// }
 
 	close(fd);
 	data->z_matrix[i] = NULL;
