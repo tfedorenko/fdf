@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stena-he <stena-he@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/25 12:15:00 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/15 17:47:13 by stena-he         ###   ########.fr       */
+/*   Created: 2022/07/15 18:01:51 by tfedoren          #+#    #+#             */
+/*   Updated: 2022/07/15 18:01:52 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
 
 #include "fdf.h"
 

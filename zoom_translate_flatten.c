@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   zoom_translate_flatten.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stena-he <stena-he@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/02 22:03:46 by stena-he          #+#    #+#             */
-/*   Updated: 2022/07/15 17:48:35 by stena-he         ###   ########.fr       */
+/*   Created: 2022/07/15 18:02:44 by tfedoren          #+#    #+#             */
+/*   Updated: 2022/07/15 18:02:45 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
 
 #include "fdf.h"
 

@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stena-he <stena-he@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/22 10:55:53 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/15 17:46:12 by stena-he         ###   ########.fr       */
+/*   Created: 2022/07/15 18:02:02 by tfedoren          #+#    #+#             */
+/*   Updated: 2022/07/15 18:02:03 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
 
 #ifndef FDF_H
 # define FDF_H

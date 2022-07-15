@@ -3,12 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   default.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stena-he <stena-he@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/15 17:17:12 by stena-he          #+#    #+#             */
-/*   Updated: 2022/07/15 17:48:56 by stena-he         ###   ########.fr       */
+/*   Created: 2022/07/15 18:01:43 by tfedoren          #+#    #+#             */
+/*   Updated: 2022/07/15 18:01:44 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
+
+
 
 #include "fdf.h"
 
@@ -29,5 +33,8 @@ void	zoom_ini(t_fdf *data)
 void	default_state(t_fdf *data)
 {
 	data->scale_z = 1;
+	// data->alpha =  0;
+	// data->beta = 0;
+	// data->gamma = 0;
 	zoom_ini (data);
 }

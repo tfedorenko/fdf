@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stena-he <stena-he@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/15 17:19:30 by stena-he          #+#    #+#             */
-/*   Updated: 2022/07/15 17:25:21 by stena-he         ###   ########.fr       */
+/*   Created: 2022/07/15 18:02:33 by tfedoren          #+#    #+#             */
+/*   Updated: 2022/07/15 18:02:34 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
 
 #include "fdf.h"
 

@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   deal_key.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stena-he <stena-he@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/15 17:15:58 by stena-he          #+#    #+#             */
-/*   Updated: 2022/07/15 17:49:10 by stena-he         ###   ########.fr       */
+/*   Created: 2022/07/15 18:01:15 by tfedoren          #+#    #+#             */
+/*   Updated: 2022/07/15 18:01:16 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
 
 #include "fdf.h" 
 
