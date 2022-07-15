@@ -6,14 +6,14 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 12:15:00 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/15 15:28:15 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/07/15 15:45:08 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-#define MAX1(a, b) (a > b ? a : b)
-#define MOD(a) ((a <  0) ? -a : a)
+// #define MAX1(a, b) (a > b ? a : b)
+// #define MOD(a) ((a <  0) ? -a : a)
 
 int	find_max(int a, int b)
 {
@@ -53,15 +53,16 @@ void	bresenham(float x, float y, float x1, float y1, fdf *data)
 	z1 = data->z_matrix[(int)y1][(int)x1];
 
 	b_zoom(&x, &y, &x1, &y1, data);
-	// b_translate(&x, &y, &x1, &y1, data);
-	// b_scale_z(&z, &z1, data);
+	b_translate(&x, &y, &x1, &y1, data);
+	// data->scale_z = 1;
+	b_scale_z(&z, &z1, data);
 	data->color = (z || z1) ? 0xe80c0c : 0xffffff;
 	isometric(&x, &y, z);
 	isometric(&x1, &y1, z1);
 	x_step = (int)x1 - x;
 	y_step = (int)y1 - y;
-	// max = find_max(find_mod(x_step), find_mod(y_step));
-	max = MAX1(MOD(x_step), MOD(y_step));
+	max = find_max(find_mod(x_step), find_mod(y_step));
+	// max = MAX1(MOD(x_step), MOD(y_step));
 
 	x_step /= max;
 	y_step /= max;

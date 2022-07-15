@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 11:02:19 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/15 15:26:01 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/07/15 15:49:23 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	deal_key(int key, fdf *data)
 		data->zoom -= 5;
 	if (key == 19)
 		data->zoom += 5;
+		
 	if (key == 1)
 		data->scale_z -= 1.1;
 	if (key == 2)
@@ -55,12 +56,10 @@ void	zoom_ini(fdf *data)
 		data->zoom = 30;
 }
 
-// int test(fdf *data)
-// {
-// 	getchar();
-// 	draw(data);
-// 	return (0);
-// }
+void default_state(fdf *data)
+{
+	data->scale_z = 1;
+}
 
 int	main(int argc, char **argv)
 {
@@ -82,9 +81,9 @@ int	main(int argc, char **argv)
 	data->mlx_ptr = mlx_init();
 	data->win_ptr = mlx_new_window(data->mlx_ptr, 1000, 1000, "FDF");
 	zoom_ini (data);
+
+	default_state(data);
 	draw(data);
-	// write(2, "t1\n", 3);
 	mlx_key_hook(data->win_ptr, deal_key, data);
-	// mlx_loop_hook(data->mlx_ptr, test, data);
 	mlx_loop(data->mlx_ptr);
 }

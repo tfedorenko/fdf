@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 22:03:46 by stena-he          #+#    #+#             */
-/*   Updated: 2022/07/07 17:28:55 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/07/15 15:51:03 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	b_translate(float *x, float *y, float *x1, float *y1, fdf *data)
 
 void	b_scale_z(int *z, int *z1, fdf *data)
 {
-	//data->scale_z = 1;
 	*z *= data->scale_z;
 	*z1 *= data->scale_z;
 }
