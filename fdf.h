@@ -6,7 +6,7 @@
 /*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 18:02:02 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/15 18:02:03 by tfedoren         ###   ########.fr       */
+/*   Updated: 2022/07/15 20:19:22 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@
 # include "minilibx_macos/mlx.h"
 # include <math.h>
 
+# define WIDTH 1000
+# define HEIGHT 1000
+
 // include minilibx
 
 typedef struct s_fdf
@@ -35,18 +38,31 @@ typedef struct s_fdf
 	int		**z_matrix;
 	int		zoom;
 	int		color;
+	int		bits_per_pixel;
 	int		shift_x;
 	int		shift_y;
-	void	*img;
+	void	*img_ptr;
 	void	*mlx_ptr;
 	void	*win_ptr;
 	int		scale_z;
-	int		angle_thingy;
 	double	alpha;
 	double	gamma;
 	double	beta;
+	char	*mlx_img_addr;
+	// t_img	img;
 
 }	t_fdf;
+
+
+// typedef struct s_img
+// {
+// 	void	*img_ptr;
+// 	void	*data;
+// 	int		size_l;
+// 	int		bpp;
+// 	int		endian;
+// }	t_img;
+
 
 int		find_max(int a, int b);
 int		find_mod(int a);

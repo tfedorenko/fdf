@@ -6,7 +6,7 @@
 /*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 18:01:43 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/15 18:01:44 by tfedoren         ###   ########.fr       */
+/*   Updated: 2022/07/15 20:24:40 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ void	default_state(t_fdf *data)
 	// data->alpha =  0;
 	// data->beta = 0;
 	// data->gamma = 0;
+	data->bits_per_pixel = 0;
 	zoom_ini (data);
 }
