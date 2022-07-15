@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 12:15:00 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/15 17:19:51 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/07/15 17:47:13 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	isometric(float *x, float *y, int z)
 	*y = (int)(*temp + *y)*sin(0.525599) - z;
 }
 
-void	bresenham(float x, float y, float x1, float y1, fdf *data)
+void	bresenham(float x, float y, float x1, float y1, t_fdf *data)
 {
 	float	x_step;
 	float	y_step;
@@ -55,7 +55,7 @@ void	bresenham(float x, float y, float x1, float y1, fdf *data)
 	}
 }
 
-void	draw(fdf *data)
+void	draw(t_fdf *data)
 {
 	int	x;
 	int	y;

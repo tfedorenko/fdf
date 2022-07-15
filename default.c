@@ -6,13 +6,13 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 17:17:12 by stena-he          #+#    #+#             */
-/*   Updated: 2022/07/15 17:18:09 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/07/15 17:48:56 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	zoom_ini(fdf *data)
+void	zoom_ini(t_fdf *data)
 {
 	if (data->height >= 500 || data->width >= 500)
 		data->zoom = 1;
@@ -26,7 +26,7 @@ void	zoom_ini(fdf *data)
 		data->zoom = 30;
 }
 
-void	default_state(fdf *data)
+void	default_state(t_fdf *data)
 {
 	data->scale_z = 1;
 	zoom_ini (data);

@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 11:04:47 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/15 17:36:21 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/07/15 17:46:22 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void	fill_matrix(int *z_line, char *line)
 	free(nums);
 }
 
-int	read_file(char *file_name, fdf *data)
+int	read_file(char *file_name, t_fdf *data)
 {
 	int		fd;
 	char	*line;

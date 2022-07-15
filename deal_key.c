@@ -6,13 +6,13 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 17:15:58 by stena-he          #+#    #+#             */
-/*   Updated: 2022/07/15 17:16:13 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/07/15 17:49:10 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h" 
 
-int	deal_key(int key, fdf *data)
+int	deal_key(int key, t_fdf *data)
 {
 	ft_printf("%d\n", key);
 	if (key == 126)

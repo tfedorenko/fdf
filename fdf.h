@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 10:55:53 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/15 17:26:25 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/07/15 17:46:12 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 
 // include minilibx
 
-typedef struct 
+typedef struct s_fdf
 {
 	float	x;
 	float	y;
@@ -44,22 +44,22 @@ typedef struct
 	double	gamma;
 	double	beta;
 
-}	fdf;
+}	t_fdf;
 
 int		find_max(int a, int b);
 int		find_mod(int a);
-void	default_state(fdf *data);
-int		read_file(char *file_name, fdf *data);
-void	draw(fdf *data);
+void	default_state(t_fdf *data);
+int		read_file(char *file_name, t_fdf *data);
+void	draw(t_fdf *data);
 int		get_width(char *file_name);
 int		get_height(char *file_name);
 
 int		ft_wdcounter(char const *str, char c);
-int		deal_key(int key, fdf *data);
-void	bresenham(float x, float y, float x1, float y1, fdf *data);
+int		deal_key(int key, t_fdf *data);
+void	bresenham(float x, float y, float x1, float y1, t_fdf *data);
 void	default_location(float x, float y);
 
-void	b_zoom(float *x, float *y, float *x1, float *y1, fdf *data);
-void	b_translate(float *x, float *y, float *x1, float *y1, fdf *data);
-void	b_scale_z(int *z, int *z1, fdf *data);
+void	b_zoom(float *x, float *y, float *x1, float *y1, t_fdf *data);
+void	b_translate(float *x, float *y, float *x1, float *y1, t_fdf *data);
+void	b_scale_z(int *z, int *z1, t_fdf *data);
 #endif
