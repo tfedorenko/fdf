@@ -6,7 +6,7 @@
 #    By: stena-he <stena-he@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/30 18:26:35 by tfedoren          #+#    #+#              #
-#    Updated: 2022/07/02 22:10:07 by stena-he         ###   ########.fr        #
+#    Updated: 2022/07/15 17:28:59 by stena-he         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,11 @@ LIBFT_PATH	=	Libft
 SRC =	draw.c \
 		main.c \
 		read_file.c \
-		controls.c
+		zoom_translate_flatten.c \
+		utils.c \
+		rotate.c \
+		default.c \
+		deal_key.c
 
 
 OBJ = $(SRC:.c=.o)

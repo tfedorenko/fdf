@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 11:04:47 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/15 15:15:50 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/07/15 17:36:21 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ int	get_height(char *file_name)
 	close(fd);
 	return (height);
 }
-
-
 
 int	wd_counter(char *line)
 {
@@ -93,7 +91,7 @@ void	fill_matrix(int *z_line, char *line)
 	free(nums);
 }
 
-int read_file(char *file_name, fdf *data)
+int	read_file(char *file_name, fdf *data)
 {
 	int		fd;
 	char	*line;
@@ -101,10 +99,8 @@ int read_file(char *file_name, fdf *data)
 
 	data->height = get_height(file_name);
 	data->width = get_width(file_name);
-	
-	if (data->height  == -1 || data->width == -1)
+	if (data->height == -1 || data->width == -1)
 		return (-1);
-
 	data->z_matrix = (int **)malloc(sizeof(int *) * (data->height + 1));
 	i = 0;
 	while (i < data->height)
@@ -116,7 +112,6 @@ int read_file(char *file_name, fdf *data)
 		fill_matrix(data->z_matrix[i], line);
 		i++;
 	}
-
 	close(fd);
 	data->z_matrix[i] = NULL;
 	return (0);

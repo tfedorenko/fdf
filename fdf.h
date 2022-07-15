@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 10:55:53 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/08 11:20:21 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/07/15 17:26:25 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,9 @@ typedef struct
 
 }	fdf;
 
+int		find_max(int a, int b);
+int		find_mod(int a);
+void	default_state(fdf *data);
 int		read_file(char *file_name, fdf *data);
 void	draw(fdf *data);
 int		get_width(char *file_name);

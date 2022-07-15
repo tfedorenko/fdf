@@ -6,31 +6,11 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 12:15:00 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/15 15:45:08 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/07/15 17:19:51 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
-// #define MAX1(a, b) (a > b ? a : b)
-// #define MOD(a) ((a <  0) ? -a : a)
-
-int	find_max(int a, int b)
-{
-	if (a > b)
-		return (a);
-	else
-		return (b);
-}
-
-int	find_mod(int a)
-{
-	if (a < 0)
-		return (a * (-1));
-	else
-		return (a);
-}
-
 
 void	isometric(float *x, float *y, int z)
 {
