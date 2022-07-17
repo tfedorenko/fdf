@@ -6,7 +6,7 @@
 /*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 18:01:43 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/17 14:26:10 by tfedoren         ###   ########.fr       */
+/*   Updated: 2022/07/17 18:26:39 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,19 @@ void	default_state(t_fdf *data)
 	// data->alpha =  0;
 	// data->beta = 0;
 	// data->gamma = 0;
+	data->angle = 0.53;
 	data->mlx_ptr = NULL;
-	data->img.mlx_img_addr = NULL;
-	data->img.img_ptr = NULL;
+	data->mlx_img_addr = NULL;
+	data->img_ptr = NULL;
 	data->win_ptr = NULL;
 	// data->z_matrix = NULL;
-	data->img.bits_per_pixel = 0;
-	data->img.line_len = 0;
-	data->img.endian = 0;
+	data->bits_per_pixel = 0;
+	data->line_len = 0;
+	data->endian = 0;
 	zoom_ini (data);
+	data->x_offset = WIDTH / 2 - WIDTH / (2 * (int)data->zoom);
+	data->y_offset = HEIGHT / 2 - HEIGHT / (2 * (int)data->zoom);
+	
 }
 
 void mlx_ini(t_fdf *data)
@@ -52,6 +56,6 @@ void mlx_ini(t_fdf *data)
 	data->mlx_ptr = mlx_init();
 	data->win_ptr = mlx_new_window(data->mlx_ptr, WIDTH, HEIGHT, "FDF");
 	// data->img_ptr = mlx_new_image(data->mlx_ptr, data->width, data->height);
-	data->img.img_ptr = mlx_new_image(data->mlx_ptr, data->width, data->height);
-	data->img.mlx_img_addr = mlx_get_data_addr(data->img.img_ptr, &data->img.bits_per_pixel, &data->img.line_len, &data->img.endian);
+	data->img_ptr = mlx_new_image(data->mlx_ptr, data->width, data->height);
+	data->mlx_img_addr = mlx_get_data_addr(data->img_ptr, &data->bits_per_pixel, &data->line_len, &data->endian);
 }

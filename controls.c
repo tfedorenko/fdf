@@ -6,13 +6,14 @@
 /*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 22:03:46 by stena-he          #+#    #+#             */
-/*   Updated: 2022/07/17 14:19:15 by tfedoren         ###   ########.fr       */
+/*   Updated: 2022/07/17 17:55:21 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	b_zoom(float *x, float *y, float *x1, float *y1, t_fdf *data)
+// void	b_zoom(float *x, float *y, float *x1, float *y1, t_fdf *data)
+void	b_zoom(int *x, int *y, int *x1, int *y1, t_fdf *data)
 {
 	*x *= data->zoom;
 	*y *= data->zoom;
