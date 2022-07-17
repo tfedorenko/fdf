@@ -6,7 +6,7 @@
 /*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 18:01:51 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/15 20:22:18 by tfedoren         ###   ########.fr       */
+/*   Updated: 2022/07/17 14:53:59 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,11 @@ void	bresenham(float x, float y, float x1, float y1, t_fdf *data)
 		mlx_pixel_put(data->mlx_ptr, data->win_ptr, x + 450, y + 350, data->color);
 		x += x_step;
 		y += y_step;
+		printf("after pixel put x = %f, y = %f\n", x, y);
+		// if (x < 0 || y < 0)
+		// 	break;
+			
+		// printf("ami getting out? \n");
 	}
 }
 
@@ -60,6 +65,13 @@ void	draw(t_fdf *data)
 	int	x;
 	int	y;
 
+
+	// printf("h = %i w = %i\n", data->height, data->width);
+	if(data->img.img_ptr)
+	{
+		mlx_clear_window(data->mlx_ptr, data->win_ptr);
+		data->img.img_ptr = mlx_new_image(data->mlx_ptr, data->width, data->height);
+	}
 	y = 0;
 	while (y < data->height)
 	{
@@ -71,9 +83,11 @@ void	draw(t_fdf *data)
 			if (y < data->height - 1)
 				bresenham(x, y, x, y + 1, data);
 			x++;
+			// printf("end of it h = %i  w= %i\n", y, x);
+			
 		}
+		// printf("im here as well h = %i  w= %i\n", y, x);
 		y++;
 	}
-	data->img_ptr = mlx_new_image(data->mlx_ptr, data->width, data->height);
-	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_ptr, x, y);
+	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.img_ptr, x, y);
 }

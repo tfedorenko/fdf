@@ -6,7 +6,7 @@
 /*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 18:02:10 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/15 20:26:05 by tfedoren         ###   ########.fr       */
+/*   Updated: 2022/07/17 14:50:56 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	main(int argc, char **argv)
 	t_fdf	*data;
 	int		check;
 
-	
 	if (argc != 2)
 	{
 		ft_printf("Error\n");
@@ -31,16 +30,12 @@ int	main(int argc, char **argv)
 	{
 		ft_printf("Error\n");
 		return (1);
-	}			
-	data->mlx_ptr = mlx_init();
-	data->win_ptr = mlx_new_window(data->mlx_ptr, WIDTH, HEIGHT, "FDF");
-	// data->img_ptr = mlx_new_image(data->mlx_ptr, data->width, data->height);
-	// mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_ptr, data->x, data->y);
+	}	
+	default_state(data);	
+	mlx_ini(data);
 	// printf("i'm here\n");
-	// data->mlx_img_addr = mlx_get_data_addr(data->img_ptr, &data->bits_per_pixel, &data->width-1, 0);
-	printf("i'm here\n");
-	default_state(data);
-	draw(data);
+	draw (data);
+	printf("im here after first draw\n");
 	mlx_key_hook(data->win_ptr, deal_key, data);
 	mlx_loop(data->mlx_ptr);
 }
