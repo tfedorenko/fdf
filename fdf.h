@@ -6,7 +6,7 @@
 /*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 18:02:02 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/17 18:50:40 by tfedoren         ###   ########.fr       */
+/*   Updated: 2022/07/18 15:08:04 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,15 @@
 # define HEIGHT 1000
 
 // include minilibx
-// typedef struct s_img_data
-// {
-// 	void	*img_ptr;
-// 	char	*mlx_img_addr;
-// 	int		bits_per_pixel;
-// 	int		line_len;
-// 	int		endian;
-// }	t_img_data;
+typedef struct s_img_data
+{
+	void	*img_ptr;
+	char	*mlx_img_addr;
+	int		bits_per_pixel;
+	int		line_len;
+	int		endian;
+}	t_img_data;
+
 typedef struct s_fdf
 {
 	float		x;
@@ -43,7 +44,7 @@ typedef struct s_fdf
 	int			width;
 	int			height;
 	int			**z_matrix;
-	float			zoom;
+	float		zoom;
 	int			color;
 	int			shift_x;
 	int			shift_y;
@@ -54,24 +55,16 @@ typedef struct s_fdf
 	double		alpha;
 	double		gamma;
 	double		beta;
-	int	x_offset;
-	int	y_offset;
-	void	*img_ptr;
-	char	*mlx_img_addr;
-	int		bits_per_pixel;
-	int		line_len;
-	int		endian;
-	int		iso_x;
-	int		iso_y;
-	int		iso_x1;
-	int		iso_y1;
-	// t_img_data	img;
+	int			x_offset;
+	int			y_offset;
+	int			iso_x;
+	int			iso_y;
+	int			iso_x1;
+	int			iso_y1;
+	t_img_data	img;
 }	t_fdf;
 
-
-
-
-void	my_mlx_pixel_put(t_fdf *data, int x, int y, int color);
+void	my_mlx_pixel_put(t_img_data *data, int x, int y, int color);
 void	mlx_ini(t_fdf *data);
 int		find_max(int a, int b);
 int		find_mod(int a);

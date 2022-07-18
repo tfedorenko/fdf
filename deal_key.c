@@ -6,7 +6,7 @@
 /*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 18:01:15 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/17 18:51:51 by tfedoren         ###   ########.fr       */
+/*   Updated: 2022/07/18 15:09:31 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int	deal_key(int key, t_fdf *data)
 {
-	ft_printf("%d\n", key);
+	// ft_printf("%d\n", key);
 	if (key == 126)
 		data->y_offset -= 10;
 	else if (key == 125)
