@@ -6,7 +6,7 @@
 /*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 18:01:43 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/18 15:04:39 by tfedoren         ###   ########.fr       */
+/*   Updated: 2022/07/18 19:51:21 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,10 @@ void	default_state(t_fdf *data)
 	data->img.line_len = 0;
 	data->img.endian = 0;
 	zoom_ini (data);
+	if(2 * (int)data->zoom == 0)
+	{
+		data->zoom = 10;
+	}
 	data->x_offset = WIDTH / 2 - WIDTH / (2 * (int)data->zoom);
 	data->y_offset = HEIGHT / 2 - HEIGHT / (2 * (int)data->zoom);
 }
