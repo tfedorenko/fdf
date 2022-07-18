@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: stena-he <stena-he@student.42wolfsburg.de> +#+  +:+       +#+         #
+#    By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/30 18:26:35 by tfedoren          #+#    #+#              #
-#    Updated: 2022/07/15 17:28:59 by stena-he         ###   ########.fr        #
+#    Updated: 2022/07/18 20:26:16 by tfedoren         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ SRC =	draw.c \
 		utils.c \
 		rotate.c \
 		default.c \
-		deal_key.c
+		deal_key.c \
+		color_management.c
 
 
 OBJ = $(SRC:.c=.o)

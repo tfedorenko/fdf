@@ -6,7 +6,7 @@
 /*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 18:02:02 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/18 20:16:06 by tfedoren         ###   ########.fr       */
+/*   Updated: 2022/07/18 20:25:02 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,5 @@ void	b_zoom(int *x, int *y, int *x1, int *y1, t_fdf *data);
 // void	b_translate(int *x, int *y, int *x1, int *y1, t_fdf *data);
 void	b_scale_z(int *z, int *z1, t_fdf *data);
 int x_close(t_fdf *data);
+void color_function(t_fdf *data, int z, int z1);
 #endif

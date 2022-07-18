@@ -6,7 +6,7 @@
 /*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 18:01:51 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/18 15:12:20 by tfedoren         ###   ########.fr       */
+/*   Updated: 2022/07/18 20:25:50 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,8 @@ void	make_x_isometric(int x, int y, t_fdf *data)
 
 	z = data->z_matrix[(int)y][(int)x];
 	z1 = data->z_matrix[(int)y1][(int)x1];
-	data->color = (z || z1) ? 0xe80c0c : 0xffffff;
+	// data->color = (z || z1) ? 0xe80c0c : 0xffffff;
+	color_function(data, z, z1);
 	b_zoom(&x, &y, &x1, &y1, data);
 	b_scale_z(&z, &z1, data);
 	data->iso_x = x_isometric(x, y, data);
@@ -97,7 +98,8 @@ void make_y_isometric(int x, int y, t_fdf *data)
 	y1 = y + 1;
 	z = data->z_matrix[(int)y][(int)x];
 	z1 = data->z_matrix[(int)y1][(int)x1];
-	data->color = (z || z1) ? 0xe80c0c : 0xffffff;
+	// data->color = (z || z1) ? 0xe80c0c : 0xffffff;
+	color_function(data, z, z1);
 	b_zoom(&x, &y, &x1, &y1, data);
 	b_scale_z(&z, &z1, data);
 	data->iso_x = x_isometric(x, y, data);
