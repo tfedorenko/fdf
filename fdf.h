@@ -6,7 +6,7 @@
 /*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 18:02:02 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/18 20:25:02 by tfedoren         ###   ########.fr       */
+/*   Updated: 2022/07/18 20:33:21 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ typedef struct s_fdf
 	int			iso_y;
 	int			iso_x1;
 	int			iso_y1;
+	int			color_flag;
 	t_img_data	img;
 }	t_fdf;
 

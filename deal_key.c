@@ -6,7 +6,7 @@
 /*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 18:01:15 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/18 20:13:32 by tfedoren         ###   ########.fr       */
+/*   Updated: 2022/07/18 20:40:54 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,14 @@ int	deal_key(int key, t_fdf *data)
 		data->angle += 0.1;
 	else if (key == 17)
 		data->angle -= 0.1;
+	else if (key == 32)
+		data->color_flag = 1;
+	else if (key == 34)
+		data->color_flag = 2;
+	else if (key == 35)
+		data->color_flag = 3;
+	else if (key == 31)
+		data->color_flag = 0;
 	draw(data);
 	if (key == 53)
 	{

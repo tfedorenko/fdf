@@ -6,7 +6,7 @@
 /*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 18:01:43 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/18 19:51:21 by tfedoren         ###   ########.fr       */
+/*   Updated: 2022/07/18 20:34:13 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	default_state(t_fdf *data)
 	data->img.bits_per_pixel = 0;
 	data->img.line_len = 0;
 	data->img.endian = 0;
+	data->color_flag = 0;
 	zoom_ini (data);
 	if(2 * (int)data->zoom == 0)
 	{
