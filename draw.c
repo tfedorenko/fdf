@@ -6,7 +6,7 @@
 /*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 18:01:51 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/25 15:46:52 by tfedoren         ###   ########.fr       */
+/*   Updated: 2022/07/25 16:49:57 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,16 @@
 // {
 // 	if (data->isometric_flag == 0)
 // }
+
+void	isometric_iso(float *x, float *y, int z)
+{
+	float	*temp;
+
+	temp = x;
+	*x = (int)(*x - *y)*cos(0.523599);
+	*y = (int)(*temp + *y)*sin(0.525599) - z;
+}
+
 static void	drawing_line(t_fdf *data)
 {
 	float	x_step;

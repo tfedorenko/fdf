@@ -6,7 +6,7 @@
 /*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 18:01:15 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/25 15:32:34 by tfedoren         ###   ########.fr       */
+/*   Updated: 2022/07/25 17:13:13 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ int	deal_key(int key, t_fdf *data)
 	color_key(key, data);
 	zoom_flatten_key(key, data);
 	draw(data);
+	if (key == 29)
+		data->isometric_flag *= 0;
 	if (key == 53)
 	{
 		mlx_destroy_window(data->mlx_ptr, data->win_ptr);

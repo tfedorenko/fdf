@@ -6,7 +6,7 @@
 /*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 18:01:43 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/25 15:35:59 by tfedoren         ###   ########.fr       */
+/*   Updated: 2022/07/25 17:13:36 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	default_state(t_fdf *data)
 	data->img.line_len = 0;
 	data->img.endian = 0;
 	data->color_flag = 0;
-	data->isometric_flag = 0;
+	data->isometric_flag = 1;
 	zoom_ini (data);
 	if (2 * (int)data->zoom == 0)
 	{
