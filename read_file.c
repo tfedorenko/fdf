@@ -6,17 +6,9 @@
 /*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 18:02:21 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/17 17:11:47 by tfedoren         ###   ########.fr       */
+/*   Updated: 2022/07/25 15:34:09 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
-
-
-
-
-
-
 
 #include "fdf.h"
 
@@ -39,38 +31,19 @@ int	get_height(char *file_name)
 
 int	wd_counter(char *line)
 {
-	// int	count;
-	// int	i;
-	// int	flag;
-
-	// count = 0;
-	// i = 0;
-	// flag = 0;
-	// while (line[i])
-	// {
-	// 	if ((line[i] >= '0' && line[i] <= '9') && flag == 0)
-	// 	{
-	// 		count++;
-	// 		flag = 1;
-	// 	}
-	// 	else
-	// 		flag = 0;
-	// 	i++;
-	// }
-	// return (count);
-
-	int counter;
+	int	counter;
 	int	i;
-	
+
 	counter = 0;
 	i = 0;
 	while (line[i] != '\n' && line[i] != '\0')
 	{
-		if (line[i] != 32 && (line[i+1] == 32 || line[i+1] == '\0' || line[i+1] == '\n'))
+		if (line[i] != 32 && (line[i + 1] == 32 || \
+			line[i + 1] == '\0' || line[i + 1] == '\n'))
 			counter++;
 		i++;
 	}
-	return(counter);
+	return (counter);
 }
 
 int	get_width(char *file_name)
@@ -125,7 +98,8 @@ int	read_file(char *file_name, t_fdf *data)
 	data->z_matrix = (int **)malloc(sizeof(int *) * (data->height + 1));
 	i = 0;
 	while (i < data->height)
-		data->z_matrix[i++] = (int *)malloc(sizeof(int) * (data->width + data->width));
+		data->z_matrix[i++] = (int *)malloc(sizeof(int) * \
+			(data->width + data->width));
 	fd = open(file_name, O_RDONLY, 0);
 	i = 0;
 	while ((line = get_next_line(fd)))

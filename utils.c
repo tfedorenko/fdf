@@ -6,7 +6,7 @@
 /*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 18:02:33 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/18 20:15:59 by tfedoren         ###   ########.fr       */
+/*   Updated: 2022/07/25 15:33:39 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,22 +32,17 @@ int	find_mod(int a)
 
 void	my_mlx_pixel_put(t_img_data *img_data, int x, int y, int color)
 {
-	char *dst;
+	char	*dst;
 
 	if (x < WIDTH && y < HEIGHT && x > 0 && y > 0)
 	{
-		dst = img_data->mlx_img_addr + (y * img_data->line_len + x * (img_data->bits_per_pixel / 8));
+		dst = img_data->mlx_img_addr + (y * img_data->line_len + x * \
+			(img_data->bits_per_pixel / 8));
 		*(unsigned int *)dst = color;
 	}
-
-	
-	// char	*dst;
-
-	// dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	// *(unsigned int*)dst = color;
 }
 
-int x_close(t_fdf *data)
+int	x_close(t_fdf *data)
 {
 	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 	exit(1);

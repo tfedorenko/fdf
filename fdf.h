@@ -6,7 +6,7 @@
 /*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 18:02:02 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/18 20:33:21 by tfedoren         ###   ########.fr       */
+/*   Updated: 2022/07/25 15:35:32 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,9 @@ typedef struct s_fdf
 	int			iso_x1;
 	int			iso_y1;
 	int			color_flag;
+	int			color1;
+	int			color2;
+	int			isometric_flag;
 	t_img_data	img;
 }	t_fdf;
 
@@ -74,16 +77,14 @@ int		read_file(char *file_name, t_fdf *data);
 void	draw(t_fdf *data);
 int		get_width(char *file_name);
 int		get_height(char *file_name);
-
 int		ft_wdcounter(char const *str, char c);
 int		deal_key(int key, t_fdf *data);
-// void	bresenham(float x, float y, float x1, float y1, t_fdf *data);
-// void	default_location(float x, float y);
-
-// void	b_zoom(float *x, float *y, float *x1, float *y1, t_fdf *data);
-void	b_zoom(int *x, int *y, int *x1, int *y1, t_fdf *data);
-// void	b_translate(int *x, int *y, int *x1, int *y1, t_fdf *data);
-void	b_scale_z(int *z, int *z1, t_fdf *data);
-int x_close(t_fdf *data);
-void color_function(t_fdf *data, int z, int z1);
+void	flatten(int *z, int *z1, t_fdf *data);
+int		x_close(t_fdf *data);
+void	color_function(t_fdf *data, int z, int z1);
+void	rotate_x(int *y, int *z, double alpha);
+void	rotate_y(int *x, int *z, double beta);
+void	rotate_z(int *x, int *y, double gamma);
+void	x_y_isometric_helper(int x, int y, int z, t_fdf *data);
+void	x1_y1_isometric_helper(int x1, int y1, int z1, t_fdf *data);
 #endif

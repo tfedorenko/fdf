@@ -6,7 +6,7 @@
 #    By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/30 18:26:35 by tfedoren          #+#    #+#              #
-#    Updated: 2022/07/18 20:26:16 by tfedoren         ###   ########.fr        #
+#    Updated: 2022/07/25 14:53:18 by tfedoren         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,12 +17,12 @@ LIBFT_PATH	=	Libft
 SRC =	draw.c \
 		main.c \
 		read_file.c \
-		zoom_translate_flatten.c \
+		rotate_flatten.c \
 		utils.c \
-		rotate.c \
 		default.c \
 		deal_key.c \
-		color_management.c
+		color_management.c \
+		isometric_helpers.c
 
 
 OBJ = $(SRC:.c=.o)

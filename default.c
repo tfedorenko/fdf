@@ -6,7 +6,7 @@
 /*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 18:01:43 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/18 20:34:13 by tfedoren         ###   ########.fr       */
+/*   Updated: 2022/07/25 15:35:59 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,8 @@ void	zoom_ini(t_fdf *data)
 void	default_state(t_fdf *data)
 {
 	data->scale_z = 1;
-	// data->alpha =  0;
-	// data->beta = 0;
-	// data->gamma = 0;
+	data->alpha = 0;
+	data->beta = 0;
 	data->angle = 0.53;
 	data->mlx_ptr = NULL;
 	data->img.mlx_img_addr = NULL;
@@ -41,8 +40,9 @@ void	default_state(t_fdf *data)
 	data->img.line_len = 0;
 	data->img.endian = 0;
 	data->color_flag = 0;
+	data->isometric_flag = 0;
 	zoom_ini (data);
-	if(2 * (int)data->zoom == 0)
+	if (2 * (int)data->zoom == 0)
 	{
 		data->zoom = 10;
 	}
@@ -50,10 +50,8 @@ void	default_state(t_fdf *data)
 	data->y_offset = HEIGHT / 2 - HEIGHT / (2 * (int)data->zoom);
 }
 
-void mlx_ini(t_fdf *data)
+void	mlx_ini(t_fdf *data)
 {
 	data->mlx_ptr = mlx_init();
 	data->win_ptr = mlx_new_window(data->mlx_ptr, WIDTH, HEIGHT, "FDF");
-	// printf("Whaaat Wid/th %d Height %d\n\n", WIDTH, HEIGHT);
-	// perror("Zium");
 }
