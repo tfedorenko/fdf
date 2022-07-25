@@ -6,7 +6,7 @@
 /*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 18:01:15 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/25 17:33:25 by tfedoren         ###   ########.fr       */
+/*   Updated: 2022/07/25 18:16:06 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,19 @@ int	deal_key(int key, t_fdf *data)
 		data->isometric_flag *= 0;
 	if (key == 53)
 	{
+		int j = 0;
+		j = 0;
+
+		while(j < data->height)
+		{
+			perror("Help god plz\n");
+			free(data->z_matrix[j]);
+			j++;	
+		}
+		free(data->z_matrix);
+		printf("\n ");
+		// free(data->z_matrix);
+		// printf("\n Siemanko %d\n", *data->z_matrix[0]);
 		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 		exit(1);
 	}
