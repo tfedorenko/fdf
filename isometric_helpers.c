@@ -6,7 +6,7 @@
 /*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 14:51:16 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/25 17:13:27 by tfedoren         ###   ########.fr       */
+/*   Updated: 2022/07/25 17:34:23 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ static int	x_isometric(float x, float y, t_fdf *data)
 	return (x_iso);
 }
 
-//0.523599
 static int	y_isometric(float x, float y, int z, t_fdf *data)
 {
 	int	y_iso;

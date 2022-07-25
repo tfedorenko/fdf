@@ -6,7 +6,7 @@
 /*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 18:02:21 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/25 15:34:09 by tfedoren         ###   ########.fr       */
+/*   Updated: 2022/07/25 17:51:06 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,13 +102,15 @@ int	read_file(char *file_name, t_fdf *data)
 			(data->width + data->width));
 	fd = open(file_name, O_RDONLY, 0);
 	i = 0;
-	while ((line = get_next_line(fd)))
+	line = get_next_line(fd);
+	while (line)
 	{
 		fill_matrix(data->z_matrix[i], line);
 		free(line);
+		line = get_next_line(fd);
 		i++;
 	}
 	close(fd);
-	// data->z_matrix[i] = NULL;
+	data->z_matrix[i] = NULL;
 	return (0);
 }

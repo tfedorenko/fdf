@@ -6,7 +6,7 @@
 /*   By: tfedoren <tfedoren@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 18:02:10 by tfedoren          #+#    #+#             */
-/*   Updated: 2022/07/25 15:34:14 by tfedoren         ###   ########.fr       */
+/*   Updated: 2022/07/25 17:37:13 by tfedoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,5 @@ int	main(int argc, char **argv)
 	mlx_hook(data->win_ptr, 2, 0, deal_key, data);
 	mlx_hook(data->win_ptr, 17, 0, x_close, data);
 	mlx_loop(data->mlx_ptr);
+	free(data);
 }
